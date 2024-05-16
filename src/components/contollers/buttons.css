@@ -1,0 +1,15 @@
+.table-container {
+    position: relative;
+}
+
+.bottom-left-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.bottom-right-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
