@@ -261,10 +261,10 @@ export default function City() {
                             value={searchTermCountries}
                             onChange={(e) => setSearchTermCountries(e.target.value)}
                             variant="outlined"
-                            style={{marginBottom: '-10px'}}
+                            style={{position: 'relative'}}
                         />
                         <DialogContent>
-                            <Table>
+                            <Table className={'table-container'}>
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>Id</TableCell>
@@ -279,32 +279,30 @@ export default function City() {
                                         <TableRow key={value.id}>
                                             <TableCell>{value.id}</TableCell>
                                             <TableCell>{value.name}</TableCell>
+                                            <TableCell>
                                             <input
                                                 type="checkbox"
                                                 checked={checkStates[value.id] || false}
                                                 onChange={() => handleCheckboxChange(value.id, value.name)}
                                                 style={{marginBottom: '-10px'}}
                                             />
+                                            </TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>
                             </Table>
                         </DialogContent>
                         <DialogActions>
-                            <Grid item xs={12} style={{display: 'flex'}}>
-                                <div className={'bottom-right-button'}>
-                                    <Button variant="contained" color="success" style={{marginTop: '-10px'}}
+
+                                    <Button variant="contained" color="success"  style={{position: 'relative', left: '50px'}}
                                             onClick = {() => closeCountries()}>
                                         Confirm
                                     </Button>
-                                </div>
-                                <div className={'bottom-left-button'}>
-                                    <Button variant="contained" color="warning" style={{marginTop: '-10px'}}
+
+                                    <Button variant="contained" color="warning" style={{position: 'relative', left: '-450px'}}
                                             onClick={() => hideCountries()}>
                                         Discard
                                     </Button>
-                                </div>
-                            </Grid>
                         </DialogActions>
                     </Dialog>
                 </Grid>

@@ -364,11 +364,13 @@ export default function Country() {
                                         <TableRow key={value.id}>
                                             <TableCell>{value.id}</TableCell>
                                             <TableCell>{value.name}</TableCell>
+                                            <TableCell>
                                             <input
                                                 type="checkbox"
                                                 checked={checkboxStates[value.id] || false}
                                                 onChange={() => handleCheckboxChange(value.id, value.name)}
                                             />
+                                            </TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>
@@ -376,18 +378,14 @@ export default function Country() {
                         </DialogContent>
                         <DialogActions>
                             <Grid item xs={12} style={{display: 'flex'}}>
-                                <div className={'bottom-right-button'}>
-                                    <Button variant="contained" color="success" style={{marginTop: '-10px'}}
+                                    <Button variant="contained" color="success" style={{position: 'relative', right: '-100px'}}
                                             onClick = {() => closeLanguages()}>
                                         Confirm
                                     </Button>
-                                </div>
-                                <div className={'bottom-left-button'}>
-                                    <Button variant="contained" color="warning" style={{marginTop: '-10px'}}
+                                    <Button variant="contained" color="warning" style={{position: 'relative', left: '-200px'}}
                                             onClick={() => hideLanguages()}>
                                         Discard
                                     </Button>
-                                </div>
                             </Grid>
                         </DialogActions>
                     </Dialog>
@@ -457,7 +455,7 @@ export default function Country() {
                                                     value={searchTermCities}
                                                     onChange={(e) => setSearchTermCities(e.target.value)}
                                                     variant="outlined"
-                                                    style={{marginBottom: '-10px'}}
+                                                    style={{position: 'relative'}}
                                                 />
                                                 <Table>
                                                     <TableHead>
