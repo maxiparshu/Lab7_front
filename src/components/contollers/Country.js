@@ -158,7 +158,7 @@ export default function Country() {
     const handleAccept = (e) => {
         e.preventDefault();
         let id = editing;
-        let name = newName;
+        let name = tempName;
         const countryDTO = {id, name};
         console.log(countryDTO);
         if (name !== "") {
