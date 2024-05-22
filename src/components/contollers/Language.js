@@ -14,7 +14,7 @@ export default function Language() {
 
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/languages/all")
+        fetch("https://labsjava4sem-production.up.railway.app/api/languages/all")
             .then(res => res.json())
             .then((result) => {
                     setLanguages(result);
@@ -23,7 +23,7 @@ export default function Language() {
     }, [])
 
     const update = (() => {
-        fetch("http://localhost:8080/api/languages/all")
+        fetch("https://labsjava4sem-production.up.railway.app/api/languages/all")
             .then(res => res.json())
             .then((result) => {
                     setLanguages(result);
@@ -46,7 +46,7 @@ export default function Language() {
     const paperStyle = {padding:'50px 20px', width:600, margin:"20px auto"};
     const [languages, setLanguages] = useState([]);
     const handleClick = (id) => {
-        fetch("http://localhost:8080/api/languages/delete?id=" + id, {
+        fetch("https://labsjava4sem-production.up.railway.app/api/languages/delete?id=" + id, {
             method: "DELETE",
             headers: {"Content-Type": "application/json"},
         }).then(update)
@@ -61,7 +61,7 @@ export default function Language() {
         e.preventDefault();
         let name = newName;
         const language = {name};
-        fetch("http://localhost:8080/api/languages/create", {
+        fetch("https://labsjava4sem-production.up.railway.app/api/languages/create", {
             method:"POST",
             headers: {"Content-Type":"application/json"},
             body:JSON.stringify(language)
@@ -78,7 +78,7 @@ export default function Language() {
         let id = editing;
         let name = tempName;
         const language = {id, name};
-        fetch("http://localhost:8080/api/languages/update", {
+        fetch("https://labsjava4sem-production.up.railway.app/api/languages/update", {
             method:"PUT",
             headers: {"Content-Type":"application/json"},
             body:JSON.stringify(language)

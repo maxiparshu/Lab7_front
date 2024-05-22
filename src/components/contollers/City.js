@@ -12,19 +12,19 @@ import {ArrowBack, ArrowForward} from "@mui/icons-material";
 export default function City() {
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/cities/all")
+        fetch("https://labsjava4sem-production.up.railway.app/api/cities/all")
             .then(result => result.json())
             .then((res) => {
                 setCities(res);
             });
-        fetch("http://localhost:8080/api/countries/all")
+        fetch("https://labsjava4sem-production.up.railway.app/api/countries/all")
             .then(result => result.json())
             .then((res) => {
                 setCountries(res);
             })
     }, [])
     const update = (() => {
-        fetch("http://localhost:8080/api/cities/all")
+        fetch("https://labsjava4sem-production.up.railway.app/api/cities/all")
             .then(res => res.json())
             .then((result) => {
                     setCities(result);
@@ -64,7 +64,7 @@ export default function City() {
         const city = {name, latitude, longitude};
         console.log(city);
         if (name !== "") {
-            fetch("http://localhost:8080/api/cities/create/" + countryName, {
+            fetch("https://labsjava4sem-production.up.railway.app/api/cities/create/" + countryName, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(city)
@@ -93,7 +93,7 @@ export default function City() {
         let longitude = tempLongitude;
         const city = {id, name, longitude, latitude}
         console.log(city);
-        fetch("http://localhost:8080/api/cities/update", {
+        fetch("https://labsjava4sem-production.up.railway.app/api/cities/update", {
             method:"PUT",
             headers: {"Content-Type":"application/json"},
             body:JSON.stringify(city)
@@ -126,7 +126,7 @@ export default function City() {
     const paperStyle = {padding:'50px 20px', width:850, margin:"20px auto"};
     const [cities, setCities] = useState([]);
     const handleClick = (id) => {
-        fetch("http://localhost:8080/api/cities/delete?id=" + id, {
+        fetch("https://labsjava4sem-production.up.railway.app/api/cities/delete?id=" + id, {
             method: "DELETE",
             headers: {"Content-Type": "application/json"},
         }).then(update)

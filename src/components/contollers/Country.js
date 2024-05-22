@@ -11,13 +11,13 @@ import {ArrowBack, ArrowForward} from "@mui/icons-material";
 
 export default function Country() {
     useEffect(() => {
-        fetch("http://localhost:8080/api/countries/all")
+        fetch("https://labsjava4sem-production.up.railway.app/api/countries/all")
             .then(res => res.json())
             .then((result) => {
                     setCountries(result);
                 }
             );
-        fetch("http://localhost:8080/api/languages/all")
+        fetch("https://labsjava4sem-production.up.railway.app/api/languages/all")
             .then(res => res.json())
             .then((result) => {
                     setLanguages(result);
@@ -26,7 +26,7 @@ export default function Country() {
     }, [])
 
     const update = (() => {
-        fetch("http://localhost:8080/api/countries/all")
+        fetch("https://labsjava4sem-production.up.railway.app/api/countries/all")
             .then(res => res.json())
             .then((result) => {
                     setCountries(result);
@@ -73,7 +73,7 @@ export default function Country() {
     const paperStyle = {padding: '50px 20px', width: 1100, margin: "20px auto"};
     const [countries, setCountries] = useState([]);
     const handleClick = (id) => {
-        fetch("http://localhost:8080/api/countries/delete?id=" + id, {
+        fetch("https://labsjava4sem-production.up.railway.app/api/countries/delete?id=" + id, {
             method: "DELETE",
             headers: {"Content-Type": "application/json"},
         }).then(update)
@@ -89,7 +89,7 @@ export default function Country() {
         let id = countryIdAddLang;
         let languages = selectedItems;
         const countryDTO = {id, languages};
-        fetch("http://localhost:8080/api/countries/add_language", {
+        fetch("https://labsjava4sem-production.up.railway.app/api/countries/add_language", {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(countryDTO)
@@ -118,7 +118,7 @@ export default function Country() {
         const country = { name, languages};
 
         console.log(country);
-        fetch("http://localhost:8080/api/countries/create", {
+        fetch("https://labsjava4sem-production.up.railway.app/api/countries/create", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(country)
@@ -148,7 +148,7 @@ export default function Country() {
         let id = openLanguages.id;
         const countryDTO = {id, languages}
         console.log(countryDTO);
-        fetch("http://localhost:8080/api/countries/delete_language", {
+        fetch("https://labsjava4sem-production.up.railway.app/api/countries/delete_language", {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(countryDTO)
@@ -162,7 +162,7 @@ export default function Country() {
         const countryDTO = {id, name};
         console.log(countryDTO);
         if (name !== "") {
-            fetch("http://localhost:8080/api/countries/update", {
+            fetch("https://labsjava4sem-production.up.railway.app/api/countries/update", {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(countryDTO)
